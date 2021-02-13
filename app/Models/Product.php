@@ -3,26 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Authenticatable
+class Product extends Model
 {
     use SoftDeletes,  HasFactory;
 
     protected $fillable = [
+        'sku',
         'name',
-        'email',
-        'account_id',
-        'external_reference',
+        'description',
+        'price',
     ];
-
-    /**
-     * @return Account
-     */
-    public function account() {
-        return $this->belongsTo(Account::class);
-    }
 
     /**
      * @return Collection
