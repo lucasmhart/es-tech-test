@@ -79,9 +79,7 @@ class PriceObject {
      */
     public function isValid()
     {
-        return (!empty($this->product_id) &&
-            is_numeric($this->quantity) &&
-            is_numeric($this->value));
+        return !empty($this->product_id);
     }
 
     /**
