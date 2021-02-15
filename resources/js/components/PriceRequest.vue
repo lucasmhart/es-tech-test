@@ -73,12 +73,10 @@
                     sku_list  : skus,
                     account_id: this.account_id
                 }).then(response => {
-                    console.log(response)
                     this.prices = response.data.result
                 }).catch(error  => {
                     if (error.response.status == 422){
                         this.validationErrors = error.response.data.errors
-                        console.log(this.validationErrors)
                     }
                 })
             }
