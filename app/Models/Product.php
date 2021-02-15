@@ -23,4 +23,14 @@ class Product extends Model
     public function prices() {
         return $this->hasMany(Price::class);
     }
+
+    /**
+     * @param Account $account
+     * @return float
+     */
+    public function getPrice($account) {
+        $account_id = $account ? $account->id : null;
+        $price = $this->prices->where('account_id', $account_id)->min('value');
+        return $price ? $price : $this->price;
+    }
 }
